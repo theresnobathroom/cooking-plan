@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Cooking Plan</title>
+<style>
+  :root {
+    --bg: #f7f6f2;
+    --surface: #ffffff;
+    --text: #1f2421;
+    --muted: #5d645f;
+    --line: #dcdad2;
+    --accent: #1d6b52;
+    --accent-soft: #e0efe8;
+    --on-accent: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #151816;
+      --surface: #1f2421;
+      --text: #ecefec;
+      --muted: #a5ada8;
+      --line: #353b37;
+      --accent: #6fd0ac;
+      --accent-soft: #23392f;
+      --on-accent: #10231b;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 16px 16px calc(88px + env(safe-area-inset-bottom));
+  }
+  h1 { font-size: 30px; line-height: 1.2; margin: 4px 0 8px; }
+  h2 { font-size: 20px; line-height: 1.3; margin: 0 0 8px; }
+  h3 { font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin: 16px 0 4px; }
+  p { margin: 0 0 8px; }
+  ul, ol { margin: 0 0 8px; padding-left: 22px; }
+  li { margin: 4px 0; }
+  a { color: var(--accent); }
+  .eyebrow { color: var(--muted); font-size: 15px; margin: 0; }
+  .muted { color: var(--muted); }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px;
+    margin: 12px 0;
+  }
+  .card > :last-child { margin-bottom: 0; }
+  .card.current { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+  .badge {
+    display: inline-block;
+    font-size: 13px;
+    padding: 1px 8px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--text);
+    white-space: nowrap;
+  }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .btn {
+    display: inline-block;
+    min-height: 44px;
+    padding: 9px 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  .btn:disabled { opacity: .4; cursor: default; }
+  .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .pager { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .pager strong { flex: 1; text-align: center; }
+
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 8px 8px 0; border-bottom: 1px solid var(--line); }
+  thead th { font-size: 13px; color: var(--muted); font-weight: 600; }
+  tbody tr:last-child td, tbody tr:last-child th { border-bottom: 0; }
+  tbody th { font-weight: 600; white-space: nowrap; }
+  @media (max-width: 560px) {
+    thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    tr { display: block; padding: 10px 0; border-bottom: 1px solid var(--line); }
+    tbody tr:last-child { border-bottom: 0; }
+    th, td { display: block; padding: 0; border: 0; }
+    td.done:empty { display: none; }
+    td.done { margin-top: 2px; color: var(--muted); font-size: 15px; }
+    td.done::before { content: "Done when: "; }
+  }
+
+  .check {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 48px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+    cursor: pointer;
+  }
+  .check:last-child { border-bottom: 0; }
+  .check input { width: 24px; height: 24px; flex: none; margin: 0; accent-color: var(--accent); }
+  .check input:checked + span { color: var(--muted); text-decoration: line-through; }
+
+  .year-row { display: block; width: 100%; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+
+  nav {
+    position: fixed;
+    inset: auto 0 0 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    color: var(--muted);
+    font-size: 13px;
+    text-decoration: none;
+    border-top: 3px solid transparent;
+  }
+  nav a[aria-current="page"] { color: var(--text); font-weight: 600; border-top-color: var(--accent); }
+</style>
+</head>
+<body>
+<main id="view"><p class="muted">Loading the plan…</p></main>
+<nav id="tabs" aria-label="Sections"></nav>
+
+<script>
+const DAY_MS = 864e5;
+const WEEKS_PER_MONTH = 4;
+const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const TABS = [
+  ['today', 'Today'],
+  ['week', 'Week'],
+  ['costco', 'Costco'],
+  ['month', 'Month'],
+  ['year', 'Year'],
+  ['reference', 'Ref'],
+];
+
+const view = document.getElementById('view');
+const state = { weekPage: null, shopPage: null, monthPage: null };
+let plan, startDay, today;
+
+// ---- Dates: whole days since the epoch, so the viewer's own time zone never matters ----
+
+const toDay = (iso) => {
+  const [y, m, d] = iso.split('-').map(Number);
+  return Date.UTC(y, m - 1, d) / DAY_MS;
+};
+const toIso = (day) => new Date(day * DAY_MS).toISOString().slice(0, 10);
+const dayOfWeek = (day) => new Date(day * DAY_MS).getUTCDay();
+const formatDay = (day, options) =>
+  new Date(day * DAY_MS).toLocaleDateString('en-US', { timeZone: 'UTC', ...options });
+const shortDate = (day) => formatDay(day, { month: 'short', day: 'numeric' });
+
+function localToday(timezone) {
+  const override = new URLSearchParams(location.search).get('date');
+  if (/^\d{4}-\d{2}-\d{2}$/.test(override || '')) return toDay(override);
+  return toDay(new Intl.DateTimeFormat('en-CA', {
+    timeZone: timezone, year: 'numeric', month: '2-digit', day: '2-digit',
+  }).format(new Date()));
+}
+
+const weekNumber = (day) => Math.floor((day - startDay) / 7) + 1;
+const totalWeeks = () => plan.months.length * WEEKS_PER_MONTH;
+
+function weekInfo(n) {
+  const monthNo = Math.ceil(n / WEEKS_PER_MONTH);
+  const month = plan.months.find((m) => m.month === monthNo) || null;
+  const detailed = month && month.status === 'detailed';
+  return {
+    n,
+    monthNo,
+    month,
+    detail: (detailed && month.weeks[(n - 1) % WEEKS_PER_MONTH]) || null,
+    sunday: startDay + (n - 1) * 7,
+  };
+}
+
+const clampWeek = (n) => Math.min(Math.max(n, 1), totalWeeks());
+const clampMonth = (n) => Math.min(Math.max(n, 1), plan.months.length);
+
+// ---- Plan helpers ----
+
+function costcoItems(week) {
+  const pantry = week.includesPantry ? plan.pantry.map((item) => `Pantry: ${item}`) : [];
+  return week.costcoList.concat(pantry);
+}
+
+function midweekDay(info) {
+  const midweek = info.detail && info.detail.midweek;
+  return midweek ? info.sunday + DAY_NAMES.indexOf(midweek.day) : null;
+}
+
+// Mirrors the email schedule: freezer moves and tasks run only in detailed weeks.
+function todayTasks(info) {
+  const tasks = [];
+  const dow = dayOfWeek(today);
+  if (info.detail) {
+    if (midweekDay(info) === today) {
+      const { title, task, buyFresh } = info.detail.midweek;
+      tasks.push({ title: title || 'Midweek task', detail: task, extra: buyFresh && `Buy fresh: ${buyFresh}` });
+    }
+    if (dow === 3) tasks.push({ title: 'Tonight: move Thu–Fri meals to the fridge' });
+    if (dow === 5) tasks.push({ title: 'Tonight: move Sat–Sun meals to the fridge' });
+  }
+  if (dow === 6) {
+    (weekInfo(info.n + 1).detail?.saturdayNight || []).forEach((task) => {
+      tasks.push({ title: 'Tonight', detail: task });
+    });
+  }
+  return tasks;
+}
+
+// ---- Rendering helpers ----
+
+const esc = (text) => String(text).replace(/[&<>"']/g, (c) => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+}[c]));
+const list = (items, tag = 'ul') =>
+  `<${tag}>${items.map((item) => `<li>${esc(item)}</li>`).join('')}</${tag}>`;
+const section = (heading, body) => (body ? `<h3>${esc(heading)}</h3>${body}` : '');
+const listSection = (heading, items) => (items && items.length ? section(heading, list(items)) : '');
+
+function roadmapCard(month, current) {
+  return `<section class="card${current ? ' current' : ''}">
+    <div class="row"><h2>Month ${month.month}: ${esc(month.theme)}</h2>
+      <span class="badge">Not planned in detail yet</span></div>
+    ${listSection('Goals', month.goals)}
+    ${listSection('Candidate dishes', month.candidateDishes)}
+  </section>`;
+}
+
+function componentsTable(week) {
+  const rows = week.components.map((c) => `<tr>
+    <th scope="row">${esc(c.role)}</th><td>${esc(c.make)}</td><td class="done">${esc(c.doneWhen || '')}</td>
+  </tr>`).join('');
+  return `<table><thead><tr><th>Component</th><th>Make</th><th>Done when</th></tr></thead>
+    <tbody>${rows}</tbody></table>`;
+}
+
+function weekCard(info) {
+  const week = info.detail;
+  const midweek = week.midweek;
+  return `<section class="card">
+    <p class="eyebrow">Week ${info.n} · Cook day ${shortDate(info.sunday)}</p>
+    <h2>${esc(week.title)}</h2>
+    <p>${esc(week.skill)}</p>
+    ${section('Menu', componentsTable(week))}
+    ${listSection('Saturday night', week.saturdayNight)}
+    ${listSection('Weeknight meals', week.weeknightMeals)}
+    ${midweek ? section(`Midweek: ${midweek.day}`, `<p><strong>${esc(midweek.title || '')}</strong> ${esc(midweek.task)}</p>
+      ${midweek.buyFresh ? `<p class="muted">Buy fresh: ${esc(midweek.buyFresh)}</p>` : ''}`) : ''}
+    ${listSection('Notes', week.notes)}
+  </section>`;
+}
+
+function pager(kind, label, atStart, atEnd) {
+  return `<div class="pager">
+    <button class="btn" data-page="${kind}" data-delta="-1" aria-label="Previous" ${atStart ? 'disabled' : ''}>‹</button>
+    <strong>${esc(label)}</strong>
+    <button class="btn" data-page="${kind}" data-delta="1" aria-label="Next" ${atEnd ? 'disabled' : ''}>›</button>
+  </div>`;
+}
+
+// ---- Views ----
+
+function renderToday() {
+  const n = weekNumber(today);
+  const dateLine = formatDay(today, { weekday: 'long', month: 'long', day: 'numeric' });
+
+  if (n > totalWeeks()) {
+    return `<p class="eyebrow">${dateLine}</p><h1>Plan complete</h1>
+      <p>All ${plan.months.length} months are done. Time to write the next plan.</p>`;
+  }
+
+  const info = weekInfo(n);
+  const started = n >= 1;
+  const dow = dayOfWeek(today);
+  const isCookDay = started && dow === 0;
+  const tasks = todayTasks(info);
+  const nextCook = today + (7 - dow);
+  const daysToCook = nextCook - today;
+  const lead = !started ? null : tasks.find((task) => task.title !== 'Tonight');
+
+  let heading = 'Assemble a bowl';
+  if (!started) heading = `Starts in ${startDay - today} day${startDay - today === 1 ? '' : 's'}`;
+  else if (isCookDay) heading = 'Cook day';
+  else if (lead) heading = lead.title;
+
+  const rest = tasks.filter((task) => task !== lead);
+  const taskCards = rest.map((task) => `<section class="card">
+    <h2>${esc(task.title)}</h2>${task.detail ? `<p>${esc(task.detail)}</p>` : ''}
+    ${task.extra ? `<p class="muted">${esc(task.extra)}</p>` : ''}
+  </section>`).join('');
+
+  const place = started ? `Month ${info.monthNo}, Week ${info.n}` : `Month 1 begins ${shortDate(startDay)}`;
+  const nextInfo = weekInfo(n + 1);
+  const planNote = started && !info.detail && info.month ? roadmapCard(info.month, true) : '';
+
+  let body = '';
+  if (isCookDay && info.detail) {
+    body = `<section class="card"><h2>${esc(info.detail.title)}</h2><p>${esc(info.detail.skill)}</p>
+      <div class="actions"><a class="btn primary" href="#costco">Costco list</a><a class="btn" href="#week">Menu</a></div>
+    </section>`;
+  } else if (started && !lead && info.detail) {
+    body = `<section class="card"><p>${esc(plan.plateFormula)}</p>
+      ${listSection('Meals this week', info.detail.weeknightMeals)}</section>`;
+  }
+
+  return `<p class="eyebrow">${dateLine}</p>
+    <p class="eyebrow">${place}</p>
+    <h1>${esc(heading)}</h1>
+    ${lead?.detail ? `<p>${esc(lead.detail)}</p>` : ''}
+    ${lead?.extra ? `<p class="muted">${esc(lead.extra)}</p>` : ''}
+    ${body}
+    ${taskCards}
+    ${planNote}
+    <section class="card">
+      <h2>Next cook day: ${daysToCook === 1 ? 'tomorrow' : `in ${daysToCook} days`}</h2>
+      <p class="muted">${formatDay(nextCook, { weekday: 'long', month: 'long', day: 'numeric' })}${
+        nextInfo.detail && nextCook === nextInfo.sunday ? ` · Week ${nextInfo.n}: ${esc(nextInfo.detail.title)}` : ''}</p>
+      ${dow === 6 && nextInfo.detail ? '<div class="actions"><a class="btn primary" href="#costco">Costco list</a></div>' : ''}
+    </section>`;
+}
+
+function renderWeek() {
+  const n = state.weekPage ?? clampWeek(weekNumber(today));
+  const info = weekInfo(n);
+  const body = info.detail ? weekCard(info) : info.month ? roadmapCard(info.month) : '';
+  return `<h1>This week</h1>
+    ${pager('week', `Month ${info.monthNo}, Week ${n}`, n <= 1, n >= totalWeeks())}
+    ${body}`;
+}
+
+function checksKey(n) { return `cooking-costco-week-${n}`; }
+
+function loadChecks(n) {
+  try {
+    return JSON.parse(localStorage.getItem(checksKey(n))) || {};
+  } catch {
+    return {};
+  }
+}
+
+function saveChecks(n, checks) {
+  try {
+    localStorage.setItem(checksKey(n), JSON.stringify(checks));
+  } catch {
+    // Without storage the ticks just last until the page closes.
+  }
+}
+
+function clearChecks(n) {
+  try {
+    localStorage.removeItem(checksKey(n));
+  } catch {
+    // Nothing stored, nothing to clear.
+  }
+}
+
+function defaultShopWeek() {
+  const n = weekNumber(today);
+  return clampWeek(dayOfWeek(today) === 6 ? n + 1 : n);
+}
+
+function shopProgress(items, checks) {
+  return `${items.filter((item) => checks[item]).length} of ${items.length} in the cart`;
+}
+
+function renderCostco() {
+  const n = state.shopPage ?? defaultShopWeek();
+  const info = weekInfo(n);
+  const header = `<h1>Costco</h1>${pager('shop', `Week ${n} · ${shortDate(info.sunday)}`, n <= 1, n >= totalWeeks())}`;
+  if (!info.detail) {
+    return `${header}${info.month ? roadmapCard(info.month) : ''}`;
+  }
+
+  const items = costcoItems(info.detail);
+  const checks = loadChecks(n);
+  const rows = items.map((item) => `<label class="check">
+    <input type="checkbox" data-item="${esc(item)}" ${checks[item] ? 'checked' : ''}><span>${esc(item)}</span>
+  </label>`).join('');
+  return `${header}
+    <section class="card">${rows}</section>
+    <div class="row">
+      <span class="muted" id="progress">${shopProgress(items, checks)}</span>
+      <button class="btn" data-reset="${n}">Reset week</button>
+    </div>`;
+}
+
+function renderMonth() {
+  const fallback = weekInfo(clampWeek(weekNumber(today))).monthNo;
+  const m = state.monthPage ?? fallback;
+  const month = plan.months.find((item) => item.month === m);
+  const firstWeek = (m - 1) * WEEKS_PER_MONTH + 1;
+  const weeks = Array.from({ length: WEEKS_PER_MONTH }, (_, i) => weekInfo(firstWeek + i));
+  const isDetailed = month.status === 'detailed';
+  return `<h1>Month</h1>
+    ${pager('month', `Month ${m}`, m <= 1, m >= plan.months.length)}
+    ${isDetailed ? `<h2>${esc(month.theme)}</h2>${weeks.filter((w) => w.detail).map(weekCard).join('')}` : roadmapCard(month)}`;
+}
+
+function renderYear() {
+  const current = weekNumber(today) >= 1 ? weekInfo(weekNumber(today)).monthNo : null;
+  const rows = plan.months.map((month) => {
+    const first = startDay + (month.month - 1) * WEEKS_PER_MONTH * 7;
+    const last = first + WEEKS_PER_MONTH * 7 - 1;
+    const isCurrent = month.month === current;
+    return `<button class="card year-row${isCurrent ? ' current' : ''}" data-month="${month.month}">
+      <span class="row"><strong>Month ${month.month}: ${esc(month.theme)}</strong>
+        ${isCurrent ? '<span class="badge">Now</span>' : ''}</span>
+      <span class="muted">${shortDate(first)} – ${shortDate(last)} · ${
+        month.status === 'detailed' ? 'Planned' : 'Not planned in detail yet'}</span>
+    </button>`;
+  }).join('');
+  return `<h1>Year</h1>${rows}`;
+}
+
+function renderReference() {
+  return `<h1>Reference</h1>
+    <section class="card"><h2>Plate formula</h2><p>${esc(plan.plateFormula)}</p>
+      ${section('Breakfast', `<p>${esc(plan.breakfast)}</p>`)}</section>
+    <section class="card"><h2>Sunday order of operations</h2>${list(plan.sundayOrderOfOperations, 'ol')}</section>
+    <section class="card"><h2>The 7-day rule</h2><p>${esc(plan.sevenDayRule)}</p></section>
+    <section class="card"><h2>Pantry</h2>${list(plan.pantry)}</section>
+    <section class="card"><h2>Food safety</h2>${list(plan.foodSafety)}</section>
+    <section class="card"><h2>Calendar</h2>
+      <p>Every cook day and midweek task, for Google Calendar or any calendar app.</p>
+      <div class="actions"><button class="btn primary" data-ics>Download .ics</button></div></section>`;
+}
+
+const VIEWS = {
+  today: renderToday,
+  week: renderWeek,
+  costco: renderCostco,
+  month: renderMonth,
+  year: renderYear,
+  reference: renderReference,
+};
+
+function currentTab() {
+  const tab = location.hash.slice(1);
+  return VIEWS[tab] ? tab : 'today';
+}
+
+function render() {
+  const tab = currentTab();
+  view.innerHTML = VIEWS[tab]();
+  document.getElementById('tabs').innerHTML = TABS.map(([id, label]) =>
+    `<a href="#${id}" ${id === tab ? 'aria-current="page"' : ''}>${label}</a>`).join('');
+}
+
+// ---- Calendar export ----
+
+const icsText = (text) => text.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\n/g, '\\n');
+const icsDate = (day) => toIso(day).replace(/-/g, '');
+
+// RFC 5545: lines are at most 75 octets, continuations start with a space.
+function foldLine(line) {
+  const encoder = new TextEncoder();
+  const out = [];
+  let current = '';
+  let octets = 0;
+  for (const char of line) {
+    const size = encoder.encode(char).length;
+    if (octets + size > 74) {
+      out.push(current);
+      current = ' ';
+      octets = 1;
+    }
+    current += char;
+    octets += size;
+  }
+  out.push(current);
+  return out;
+}
+
+function buildIcs() {
+  const stamp = new Date().toISOString().replace(/[-:]|\.\d+/g, '');
+  const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Cooking Plan//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH'];
+  const addEvent = (id, day, summary, description) => lines.push(
+    'BEGIN:VEVENT',
+    `UID:${id}@cooking-plan`,
+    `DTSTAMP:${stamp}`,
+    `DTSTART;VALUE=DATE:${icsDate(day)}`,
+    `DTEND;VALUE=DATE:${icsDate(day + 1)}`,
+    `SUMMARY:${icsText(summary)}`,
+    `DESCRIPTION:${icsText(description)}`,
+    'END:VEVENT',
+  );
+
+  for (let n = 1; n <= totalWeeks(); n += 1) {
+    const info = weekInfo(n);
+    const week = info.detail;
+    addEvent(`week-${n}-cook`, info.sunday, `Cook day: Week ${n}`,
+      week ? `${week.title}\n${week.skill}` : `Month ${info.monthNo}: ${info.month.theme}`);
+    if (week && week.midweek) {
+      const { title, task } = week.midweek;
+      addEvent(`week-${n}-midweek`, midweekDay(info), `Tonight: ${title || task}`, task);
+    }
+  }
+  lines.push('END:VCALENDAR');
+  return `${lines.flatMap(foldLine).join('\r\n')}\r\n`;
+}
+
+function downloadIcs() {
+  const url = URL.createObjectURL(new Blob([buildIcs()], { type: 'text/calendar;charset=utf-8' }));
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'cooking-plan.ics';
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+// ---- Events ----
+
+document.addEventListener('click', (event) => {
+  const target = event.target.closest('[data-page], [data-reset], [data-ics], [data-month]');
+  if (!target) return;
+
+  if (target.dataset.page) {
+    const delta = Number(target.dataset.delta);
+    if (target.dataset.page === 'week') state.weekPage = clampWeek((state.weekPage ?? clampWeek(weekNumber(today))) + delta);
+    if (target.dataset.page === 'shop') state.shopPage = clampWeek((state.shopPage ?? defaultShopWeek()) + delta);
+    if (target.dataset.page === 'month') {
+      const current = state.monthPage ?? weekInfo(clampWeek(weekNumber(today))).monthNo;
+      state.monthPage = clampMonth(current + delta);
+    }
+    render();
+  } else if (target.dataset.reset) {
+    if (confirm('Clear every tick for this week?')) {
+      clearChecks(target.dataset.reset);
+      render();
+    }
+  } else if ('ics' in target.dataset) {
+    downloadIcs();
+  } else if (target.dataset.month) {
+    state.monthPage = Number(target.dataset.month);
+    location.hash = 'month';
+  }
+});
+
+document.addEventListener('change', (event) => {
+  const box = event.target;
+  if (!box.dataset.item) return;
+  const n = state.shopPage ?? defaultShopWeek();
+  const checks = loadChecks(n);
+  checks[box.dataset.item] = box.checked;
+  saveChecks(n, checks);
+  document.getElementById('progress').textContent = shopProgress(costcoItems(weekInfo(n).detail), checks);
+});
+
+window.addEventListener('hashchange', () => {
+  render();
+  window.scrollTo(0, 0);
+});
+
+// ---- Start ----
+
+function start(loaded) {
+  plan = loaded;
+  startDay = toDay(plan.startDate);
+  today = localToday(plan.timezone);
+  render();
+}
+
+// Browsers block fetch() on file:// pages, so opening the file directly offers a picker instead.
+function showFilePicker() {
+  view.innerHTML = `<h1>Choose plan.json</h1>
+    <p>Your browser won't load plan.json automatically when this page is opened as a file.
+    Pick it from the same folder, or see the README for a one-line local server.</p>
+    <input type="file" id="plan-file" accept=".json,application/json">
+    <p class="muted" id="plan-error"></p>`;
+  document.getElementById('plan-file').addEventListener('change', async (event) => {
+    try {
+      start(JSON.parse(await event.target.files[0].text()));
+    } catch (err) {
+      document.getElementById('plan-error').textContent = `That file didn't load: ${err.message}`;
+    }
+  });
+}
+
+fetch('plan.json', { cache: 'no-cache' })
+  .then((response) => {
+    if (!response.ok) throw new Error(`plan.json returned ${response.status}`);
+    return response.json();
+  })
+  .then(start)
+  .catch((err) => {
+    if (location.protocol === 'file:') {
+      showFilePicker();
+    } else {
+      view.innerHTML = `<h1>The plan didn't load</h1><p>${esc(err.message)}</p>`;
+    }
+  });
+</script>
+</body>
+</html>

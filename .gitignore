@@ -1,0 +1,6 @@
+# The spec contains the reminder email address; keep it out of the public repo.
+cooking-site-spec.md
+
+.DS_Store
+Thumbs.db
+.vscode/

@@ -1,0 +1,345 @@
+{
+  "startDate": "2026-11-01",
+  "timezone": "Pacific/Honolulu",
+  "plateFormula": "~6 oz cooked protein, half the container vegetables, 3/4-1 cup starch (1/2 cup on rest days or during the cut)",
+  "breakfast": "Greek yogurt + frozen berries + oats, or 3 eggs + egg whites",
+  "sevenDayRule": "Portion 14 meals Sunday. Fridge the Mon–Wed meals, freeze the Thu–Sun meals, and move each frozen meal to the fridge the night before.",
+  "pantry": [
+    "Jasmine rice (25 lb) and rolled oats",
+    "Extra-virgin olive oil, avocado oil",
+    "Kosher salt, black peppercorns",
+    "Smoked paprika, cumin, chili powder, garlic powder, chili flakes, dried dill",
+    "Shoyu, rice vinegar, red wine vinegar, toasted sesame oil",
+    "Honey, brown sugar, ketchup, sriracha",
+    "Sesame seeds"
+  ],
+  "foodSafety": [
+    "Raw chicken, pork and ground meat: cook within 1–2 days or freeze the same day.",
+    "Cooked food: 3–4 days in the fridge, 2–3 months frozen. Date every bag.",
+    "Thaw in the fridge overnight, never on the counter.",
+    "Spread rice and chili out to cool; fridge within 2 hours.",
+    "Separate cutting board for raw meat."
+  ],
+  "sundayOrderOfOperations": [
+    "Unpack Costco. Split raw meat into recipe-size portions; freeze what isn't cooking today.",
+    "Preheat the oven to 425°F and start the rice cooker.",
+    "Season Protein A and put it in the oven on sheet pan 1.",
+    "Chop vegetables; roast them on sheet pans 2 and 3.",
+    "Cook Protein B on the stovetop while the oven works.",
+    "Make both sauces while everything finishes.",
+    "Cool 20 minutes, portion into containers, fridge and freezer.",
+    "Clean as you go; the session ends when the sink is empty."
+  ],
+  "months": [
+    {
+      "month": 1,
+      "theme": "Foundation: meal prep",
+      "status": "detailed",
+      "weeks": [
+        {
+          "week": 1,
+          "title": "Roasting and the thermometer",
+          "skill": "Roast protein and vegetables at high heat; cook by temperature, not time.",
+          "components": [
+            {
+              "role": "Protein A",
+              "make": "Sheet-pan chicken thighs (olive oil, salt, pepper, smoked paprika, garlic powder), 425°F, 25–30 min.",
+              "doneWhen": "175–185°F"
+            },
+            {
+              "role": "Protein B",
+              "make": "Turkey taco meat: brown 93% lean turkey with onion, cumin, chili powder, salt, a splash of water.",
+              "doneWhen": "165°F, no pink"
+            },
+            {
+              "role": "Starch",
+              "make": "Jasmine rice in the rice cooker.",
+              "doneWhen": ""
+            },
+            {
+              "role": "Vegetables",
+              "make": "Pan 1 broccoli florets, pan 2 cubed sweet potato; oil and salt, 425°F, 20–30 min.",
+              "doneWhen": "Browned and fork-tender"
+            },
+            {
+              "role": "Sauce 1",
+              "make": "Lemon-garlic yogurt (Greek yogurt, lemon juice, grated garlic, salt, dill).",
+              "doneWhen": ""
+            },
+            {
+              "role": "Sauce 2",
+              "make": "Jarred salsa plus cilantro and lime.",
+              "doneWhen": ""
+            }
+          ],
+          "weeknightMeals": [
+            "Chicken rice bowls with yogurt sauce",
+            "Turkey burrito bowls with salsa and corn tortillas"
+          ],
+          "costcoList": [
+            "Chicken thighs (cook half, freeze half)",
+            "93% lean ground turkey (cook 2 lb, freeze rest)",
+            "Broccoli florets",
+            "Sweet potatoes",
+            "Yellow onions",
+            "Nonfat Greek yogurt",
+            "Eggs (5 dozen) and liquid egg whites",
+            "Frozen berries",
+            "Lemons and limes",
+            "Fresh salsa and cilantro",
+            "Corn tortillas"
+          ],
+          "includesPantry": true,
+          "notes": []
+        },
+        {
+          "week": 2,
+          "title": "Searing and a pan sauce",
+          "skill": "Hard sear in a hot skillet, then build a sauce from the pan.",
+          "components": [
+            {
+              "role": "Protein A",
+              "make": "Pork tenderloin: pat dry, salt, sear all sides, finish at 425°F for 12–18 min, rest 5 min, slice.",
+              "doneWhen": "145°F"
+            },
+            {
+              "role": "Protein B",
+              "make": "Chicken thighs from the Week 1 freezer bag, roasted the same way.",
+              "doneWhen": "175–185°F"
+            },
+            {
+              "role": "Starch",
+              "make": "Jasmine rice.",
+              "doneWhen": ""
+            },
+            {
+              "role": "Vegetables",
+              "make": "Pan 1 halved Brussels sprouts, pan 2 frozen stir-fry vegetables (roasted from frozen).",
+              "doneWhen": ""
+            },
+            {
+              "role": "Sauce 1",
+              "make": "Soy-ginger glaze (shoyu, rice vinegar, honey, grated ginger and garlic) simmered in the pork pan.",
+              "doneWhen": "Syrupy"
+            },
+            {
+              "role": "Sauce 2",
+              "make": "Lemon-garlic yogurt (repeat).",
+              "doneWhen": ""
+            }
+          ],
+          "midweek": {
+            "day": "Wednesday",
+            "title": "Pan-seared salmon",
+            "task": "15 min: sear one fresh salmon fillet skin-side down 5–6 min, flip for 2. Pull at 125–130°F for moist fish (USDA lists 145°F).",
+            "buyFresh": "One salmon fillet, unless you moved one from the frozen wild salmon bag to the fridge Tuesday night."
+          },
+          "weeknightMeals": [
+            "Pork rice bowls with glaze",
+            "Chicken bowls with yogurt sauce",
+            "Salmon over rice Wednesday"
+          ],
+          "saturdayNight": [
+            "Move the Week 1 bag of frozen chicken thighs to the fridge to thaw."
+          ],
+          "costcoList": [
+            "Pork tenderloin (2-pack)",
+            "Frozen wild salmon",
+            "Brussels sprouts",
+            "Frozen stir-fry blend",
+            "Fresh ginger and garlic",
+            "Greek yogurt, eggs, berries",
+            "Lemons"
+          ],
+          "notes": [
+            "Freeze any tenderloin you don't cook today; Week 4 can use it."
+          ]
+        },
+        {
+          "week": 3,
+          "title": "One-pot cooking and seasoning by taste",
+          "skill": "Build flavor in layers in one pot; adjust salt and acid by tasting.",
+          "components": [
+            {
+              "role": "Protein A",
+              "make": "Turkey chili: brown 2.5 lb turkey with onion and garlic; add 2 cans beans and 2 cans crushed tomatoes, chili powder, cumin, smoked paprika; simmer 45 min. Finish with salt and lime.",
+              "doneWhen": ""
+            },
+            {
+              "role": "Protein B",
+              "make": "Poached chicken breast: salted water to a bare simmer, heat off, lid on 15–20 min, shred.",
+              "doneWhen": "165°F"
+            },
+            {
+              "role": "Starch",
+              "make": "Roasted baby potatoes, halved, 425°F, 30–35 min.",
+              "doneWhen": ""
+            },
+            {
+              "role": "Vegetables",
+              "make": "Roasted broccoli; raw cabbage slaw (cabbage, lime, salt, a little Greek yogurt).",
+              "doneWhen": ""
+            },
+            {
+              "role": "Sauce",
+              "make": "Chimichurri (parsley, garlic, red wine vinegar, olive oil, chili flakes, salt).",
+              "doneWhen": ""
+            }
+          ],
+          "weeknightMeals": [
+            "Chili with slaw",
+            "Shredded chicken with potatoes, broccoli and chimichurri",
+            "Chicken tacos"
+          ],
+          "costcoList": [
+            "93% lean ground turkey",
+            "Chicken breasts",
+            "Canned black and kidney beans",
+            "Canned crushed tomatoes",
+            "Baby potatoes",
+            "Broccoli",
+            "Green cabbage",
+            "Parsley, garlic, onions",
+            "Greek yogurt, eggs, berries"
+          ],
+          "notes": [
+            "Freeze 3–4 extra chili portions as emergency meals.",
+            "Heads-up for Week 4: the huli-huli chicken marinates Saturday night, so buy the thighs, pineapple juice and ginger before next Saturday."
+          ]
+        },
+        {
+          "week": 4,
+          "title": "Marinades and a first dish to show off",
+          "skill": "Marinate ahead; cook one fresh dish without the recipe open.",
+          "components": [
+            {
+              "role": "Protein A",
+              "make": "Huli-huli-style chicken thighs, marinated Saturday night (shoyu, pineapple juice, ketchup, brown sugar, ginger, garlic); roast at 425°F, brush with boiled marinade the last 5 min.",
+              "doneWhen": "175–185°F"
+            },
+            {
+              "role": "Protein B",
+              "make": "Pork tenderloin with soy-ginger glaze (from memory).",
+              "doneWhen": "145°F"
+            },
+            {
+              "role": "Starch",
+              "make": "Jasmine rice.",
+              "doneWhen": ""
+            },
+            {
+              "role": "Vegetables",
+              "make": "Roasted broccoli and Brussels sprouts; cucumber salad (rice vinegar, salt, sesame seeds).",
+              "doneWhen": ""
+            },
+            {
+              "role": "Sauce",
+              "make": "Leftover glaze; sriracha \"mayo\" made with Greek yogurt.",
+              "doneWhen": ""
+            }
+          ],
+          "midweek": {
+            "day": "Wednesday",
+            "title": "Ahi poke bowl",
+            "task": "Cube the ahi and toss with shoyu, sesame oil, green onion, chili flakes; serve over rice with cucumber salad. Eat the same night.",
+            "buyFresh": "Sashimi-grade ahi, bought today (Costco or a local fish counter)."
+          },
+          "weeknightMeals": [],
+          "saturdayNight": [
+            "Marinate the huli-huli chicken thighs tonight (shoyu, pineapple juice, ketchup, brown sugar, ginger, garlic). If you don't have the thighs yet, marinate right after the Sunday shop instead.",
+            "If you're using the frozen Week 2 pork tenderloin, move it to the fridge to thaw."
+          ],
+          "costcoList": [
+            "Chicken thighs",
+            "Pork tenderloin (or the Week 2 frozen one)",
+            "Pineapple juice (small cans)",
+            "Cucumbers, green onions",
+            "Broccoli, Brussels sprouts",
+            "Sashimi-grade ahi (Wednesday, Costco or a local fish counter)",
+            "Greek yogurt, eggs, berries"
+          ],
+          "notes": [
+            "End-of-month test: cook the Week 1 menu with no recipe open."
+          ]
+        }
+      ]
+    },
+    {
+      "month": 2,
+      "theme": "Foundation, repeat with confidence",
+      "status": "outline",
+      "goals": ["Run the Month 1 rotation from memory", "Add eggs and fish skills"],
+      "candidateDishes": ["Shakshuka", "Pan-seared fish with lemon butter", "Sheet-pan salmon"]
+    },
+    {
+      "month": 3,
+      "theme": "Sauces and knife speed",
+      "status": "outline",
+      "goals": ["Five sauces by heart", "Dice an onion in under a minute"],
+      "candidateDishes": ["Chimichurri", "Tzatziki", "Peanut sauce", "Salsa verde", "Pan gravy"]
+    },
+    {
+      "month": 4,
+      "theme": "Thai and stir-fry",
+      "status": "outline",
+      "goals": ["Wok-style high heat", "Balance salty, sour, sweet, spicy"],
+      "candidateDishes": ["Chicken stir-fry", "Larb", "Thai basil chicken"]
+    },
+    {
+      "month": 5,
+      "theme": "Mexican",
+      "status": "outline",
+      "goals": ["Braises, salsas, tortillas"],
+      "candidateDishes": ["Chicken tinga", "Carne asada", "Black bean soup"]
+    },
+    {
+      "month": 6,
+      "theme": "Japanese and local Hawaii",
+      "status": "outline",
+      "goals": ["Fish handling, rice, marinades"],
+      "candidateDishes": ["Poke", "Teriyaki salmon", "Shoyu chicken", "Katsu (baked)"]
+    },
+    {
+      "month": 7,
+      "theme": "Mediterranean",
+      "status": "outline",
+      "goals": ["Grilling, yogurt marinades, grain salads"],
+      "candidateDishes": ["Chicken souvlaki", "Kofta", "Tabbouleh"]
+    },
+    {
+      "month": 8,
+      "theme": "Lean cut month (aligns with fitness cut)",
+      "status": "outline",
+      "goals": ["Highest-volume, lowest-calorie versions of the rotation"],
+      "candidateDishes": ["Big salads", "Soups", "Fish and vegetable trays"]
+    },
+    {
+      "month": 9,
+      "theme": "Showpiece 1: steak",
+      "status": "outline",
+      "goals": ["Sear, rest, pan sauce, plating"],
+      "candidateDishes": ["Seared steak with pan sauce", "Roasted vegetables"]
+    },
+    {
+      "month": 10,
+      "theme": "Showpiece 2: roast chicken",
+      "status": "outline",
+      "goals": ["Whole bird, carving, jus"],
+      "candidateDishes": ["Roast chicken", "Potatoes", "Green salad"]
+    },
+    {
+      "month": 11,
+      "theme": "Showpiece 3: risotto and one dessert",
+      "status": "outline",
+      "goals": ["Technique dishes that need attention"],
+      "candidateDishes": ["Mushroom risotto", "Simple dessert"]
+    },
+    {
+      "month": 12,
+      "theme": "Date-night rehearsal",
+      "status": "outline",
+      "goals": ["Plan and run a full 3-course dinner twice"],
+      "candidateDishes": ["His best three dishes", "Timed menu"]
+    }
+  ]
+}
