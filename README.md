@@ -70,7 +70,8 @@ Optional week fields:
 
 | Field | Purpose |
 | --- | --- |
-| `midweek` | `day`, `title` (short, used in the email subject), `task`, and optional `buyFresh` |
+| `midweek` | `day`, `title` (short, used in the email subject), `task`, and optional `buyFresh`, `ingredients` and `steps` |
+| `ingredients`, `steps` | On a component: adds an expandable full recipe on the site. Emails keep the short `make` text |
 | `saturdayNight` | Tasks for the Saturday before this week's cook day, such as thawing or marinating |
 | `includesPantry` | `true` adds the pantry list to this week's Costco checklist |
 

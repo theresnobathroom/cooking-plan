@@ -44,32 +44,111 @@
             {
               "role": "Protein A",
               "make": "Sheet-pan chicken thighs (olive oil, salt, pepper, smoked paprika, garlic powder), 425°F, 25–30 min.",
-              "doneWhen": "175–185°F"
+              "doneWhen": "175–185°F",
+              "ingredients": [
+                "3 lb boneless, skinless chicken thighs (about half the Costco pack)",
+                "2 tbsp olive oil",
+                "2 tsp kosher salt",
+                "1 tsp black pepper",
+                "2 tsp smoked paprika",
+                "2 tsp garlic powder"
+              ],
+              "steps": [
+                "Heat the oven to 425°F and line a sheet pan with foil.",
+                "Pat the thighs dry with paper towels. Dry chicken browns; wet chicken steams.",
+                "Toss the thighs with the oil, salt, pepper, paprika and garlic powder in a large bowl.",
+                "Lay them flat on the pan in one layer with a little space between pieces.",
+                "Roast 25–30 minutes, swapping pan positions halfway if the oven is full.",
+                "Check the thickest piece with the thermometer. Pull at 175–185°F.",
+                "Rest 5 minutes, then slice."
+              ]
             },
             {
               "role": "Protein B",
               "make": "Turkey taco meat: brown 93% lean turkey with onion, cumin, chili powder, salt, a splash of water.",
-              "doneWhen": "165°F, no pink"
+              "doneWhen": "165°F, no pink",
+              "ingredients": [
+                "1 tbsp avocado oil",
+                "1 large yellow onion, diced",
+                "2 lb 93% lean ground turkey",
+                "2 tbsp chili powder",
+                "1 tbsp cumin",
+                "1 1/2 tsp kosher salt",
+                "1/4 cup water"
+              ],
+              "steps": [
+                "Heat the oil in a large skillet over medium heat. Cook the onion 5 minutes, until soft.",
+                "Turn the heat to medium-high, add the turkey, and break it up with a spoon.",
+                "Cook 8–10 minutes, stirring now and then, until there is no pink left.",
+                "Stir in the chili powder, cumin and salt, and cook 1 minute.",
+                "Add the water and simmer 2–3 minutes, until the pan is mostly dry.",
+                "Check a thick spot with the thermometer. It should read 165°F."
+              ]
             },
             {
               "role": "Starch",
               "make": "Jasmine rice in the rice cooker.",
-              "doneWhen": ""
+              "doneWhen": "",
+              "ingredients": [
+                "4 cups dry jasmine rice",
+                "About 4 cups water, or to the 4-cup line on your cooker"
+              ],
+              "steps": [
+                "Rinse the rice in the cooker pot or a strainer, swirling and draining, until the water is mostly clear.",
+                "Add the water and start the cooker. If 4 cups is over your cooker's limit, cook two batches.",
+                "When it finishes, leave the lid closed for 10 minutes, then fluff with a fork.",
+                "Spread the rice on a sheet pan to cool before portioning. Get it in the fridge within 2 hours."
+              ]
             },
             {
               "role": "Vegetables",
               "make": "Pan 1 broccoli florets, pan 2 cubed sweet potato; oil and salt, 425°F, 20–30 min.",
-              "doneWhen": "Browned and fork-tender"
+              "doneWhen": "Browned and fork-tender",
+              "ingredients": [
+                "3 lb sweet potatoes, cut into 3/4-inch cubes",
+                "2 lb broccoli florets",
+                "3 tbsp avocado oil",
+                "1 1/2 tsp kosher salt"
+              ],
+              "steps": [
+                "Heat the oven to 425°F. Dry the broccoli well if you rinsed it.",
+                "Toss the sweet potatoes with half the oil and salt on one sheet pan, and spread them in a single layer.",
+                "Do the same with the broccoli on a second pan.",
+                "Roast the sweet potatoes 10 minutes first, then add the broccoli.",
+                "Roast both 20 minutes more, flipping once, until browned at the edges and a fork slides into the sweet potato."
+              ]
             },
             {
               "role": "Sauce 1",
               "make": "Lemon-garlic yogurt (Greek yogurt, lemon juice, grated garlic, salt, dill).",
-              "doneWhen": ""
+              "doneWhen": "",
+              "ingredients": [
+                "2 cups nonfat Greek yogurt",
+                "3 tbsp lemon juice (about 1 lemon)",
+                "2 garlic cloves, grated",
+                "3/4 tsp kosher salt",
+                "1 tsp dried dill"
+              ],
+              "steps": [
+                "Stir everything together in a bowl.",
+                "Taste. Add salt if it tastes flat, or lemon if it tastes heavy.",
+                "Refrigerate. It keeps 3–4 days."
+              ]
             },
             {
               "role": "Sauce 2",
               "make": "Jarred salsa plus cilantro and lime.",
-              "doneWhen": ""
+              "doneWhen": "",
+              "ingredients": [
+                "2 cups salsa",
+                "1/2 cup chopped cilantro",
+                "2 tbsp lime juice (about 1 lime)"
+              ],
+              "steps": [
+                "Stir everything together.",
+                "Taste and add salt or more lime if needed.",
+                "Refrigerate. It keeps 3–4 days."
+              ]
             }
           ],
           "weeknightMeals": [
@@ -100,39 +179,134 @@
             {
               "role": "Protein A",
               "make": "Pork tenderloin: pat dry, salt, sear all sides, finish at 425°F for 12–18 min, rest 5 min, slice.",
-              "doneWhen": "145°F"
+              "doneWhen": "145°F",
+              "ingredients": [
+                "2 pork tenderloins (about 1 1/4 lb each)",
+                "2 tsp kosher salt",
+                "1 tbsp avocado oil"
+              ],
+              "steps": [
+                "Heat the oven to 425°F. Trim off any silvery membrane with a thin knife.",
+                "Pat the pork completely dry and salt it on all sides.",
+                "Heat the oil in a large oven-safe skillet over medium-high until it shimmers.",
+                "Sear the pork 2–3 minutes per side, without moving it, until deep brown all over.",
+                "Move the skillet to the oven and roast 12–18 minutes. Pull at 145°F in the thickest part.",
+                "Put a towel over the handle; it stays dangerously hot. Move the pork to a board and rest 5 minutes.",
+                "Keep the browned bits in the skillet for the glaze. Slice the pork after resting."
+              ]
             },
             {
               "role": "Protein B",
               "make": "Chicken thighs from the Week 1 freezer bag, roasted the same way.",
-              "doneWhen": "175–185°F"
+              "doneWhen": "175–185°F",
+              "ingredients": [
+                "The Week 1 bag of thighs, thawed in the fridge (about 3 lb)",
+                "2 tbsp olive oil",
+                "2 tsp kosher salt",
+                "1 tsp black pepper",
+                "2 tsp smoked paprika",
+                "2 tsp garlic powder"
+              ],
+              "steps": [
+                "Heat the oven to 425°F and line a sheet pan with foil.",
+                "Pat the thighs dry with paper towels. Dry chicken browns; wet chicken steams.",
+                "Toss the thighs with the oil, salt, pepper, paprika and garlic powder in a large bowl.",
+                "Lay them flat on the pan in one layer with a little space between pieces.",
+                "Roast 25–30 minutes, swapping pan positions halfway if the oven is full.",
+                "Check the thickest piece with the thermometer. Pull at 175–185°F.",
+                "Rest 5 minutes, then slice."
+              ]
             },
             {
               "role": "Starch",
               "make": "Jasmine rice.",
-              "doneWhen": ""
+              "doneWhen": "",
+              "ingredients": [
+                "4 cups dry jasmine rice",
+                "About 4 cups water, or to the 4-cup line on your cooker"
+              ],
+              "steps": [
+                "Rinse the rice in the cooker pot or a strainer, swirling and draining, until the water is mostly clear.",
+                "Add the water and start the cooker. If 4 cups is over your cooker's limit, cook two batches.",
+                "When it finishes, leave the lid closed for 10 minutes, then fluff with a fork.",
+                "Spread the rice on a sheet pan to cool before portioning. Get it in the fridge within 2 hours."
+              ]
             },
             {
               "role": "Vegetables",
               "make": "Pan 1 halved Brussels sprouts, pan 2 frozen stir-fry vegetables (roasted from frozen).",
-              "doneWhen": ""
+              "doneWhen": "",
+              "ingredients": [
+                "2 lb Brussels sprouts, trimmed and halved",
+                "2 lb frozen stir-fry vegetables (do not thaw)",
+                "3 tbsp avocado oil",
+                "1 1/2 tsp kosher salt"
+              ],
+              "steps": [
+                "Heat the oven to 425°F.",
+                "Toss the sprouts with half the oil and salt, then set them cut-side down on one sheet pan.",
+                "Spread the frozen vegetables on a second pan, still frozen, and toss with the rest of the oil and salt.",
+                "Roast both 20–25 minutes, stirring the frozen vegetables once. The sprouts are done when the cut sides are deep brown.",
+                "Drain off any water from the frozen vegetables before portioning."
+              ]
             },
             {
               "role": "Sauce 1",
               "make": "Soy-ginger glaze (shoyu, rice vinegar, honey, grated ginger and garlic) simmered in the pork pan.",
-              "doneWhen": "Syrupy"
+              "doneWhen": "Syrupy",
+              "ingredients": [
+                "1/2 cup shoyu",
+                "1/4 cup rice vinegar",
+                "1/4 cup honey",
+                "1 tbsp grated fresh ginger",
+                "3 garlic cloves, grated"
+              ],
+              "steps": [
+                "Whisk everything in a bowl while the pork roasts.",
+                "Once the pork is out, set the hot skillet over medium heat. Use a towel on the handle.",
+                "Pour in the glaze and scrape up the browned bits with a wooden spoon.",
+                "Simmer 3–5 minutes, until syrupy and coating the spoon. It thickens more as it cools.",
+                "Spoon over the sliced pork, and save the rest in a jar."
+              ]
             },
             {
               "role": "Sauce 2",
               "make": "Lemon-garlic yogurt (repeat).",
-              "doneWhen": ""
+              "doneWhen": "",
+              "ingredients": [
+                "2 cups nonfat Greek yogurt",
+                "3 tbsp lemon juice (about 1 lemon)",
+                "2 garlic cloves, grated",
+                "3/4 tsp kosher salt",
+                "1 tsp dried dill"
+              ],
+              "steps": [
+                "Stir everything together in a bowl.",
+                "Taste. Add salt if it tastes flat, or lemon if it tastes heavy.",
+                "Refrigerate. It keeps 3–4 days."
+              ]
             }
           ],
           "midweek": {
             "day": "Wednesday",
             "title": "Pan-seared salmon",
             "task": "15 min: sear one fresh salmon fillet skin-side down 5–6 min, flip for 2. Pull at 125–130°F for moist fish (USDA lists 145°F).",
-            "buyFresh": "One salmon fillet, unless you moved one from the frozen wild salmon bag to the fridge Tuesday night."
+            "buyFresh": "One salmon fillet, unless you moved one from the frozen wild salmon bag to the fridge Tuesday night.",
+            "ingredients": [
+              "1 salmon fillet, skin on (6–8 oz)",
+              "1 tsp avocado oil",
+              "1/4 tsp kosher salt",
+              "Black pepper"
+            ],
+            "steps": [
+              "If using frozen salmon, thaw it in the fridge from Tuesday night.",
+              "Pat the fillet very dry, then season both sides.",
+              "Heat the oil in a skillet over medium-high until it shimmers.",
+              "Lay the fish skin-side down, away from you, and press gently with a spatula for 10 seconds.",
+              "Cook 5–6 minutes without moving it, until the color has climbed most of the way up the side.",
+              "Flip and cook 2 minutes. Pull at 125–130°F for moist fish, or 145°F for the USDA temperature.",
+              "Rest 2 minutes, then serve over rice."
+            ]
           },
           "weeknightMeals": [
             "Pork rice bowls with glaze",
@@ -163,27 +337,105 @@
             {
               "role": "Protein A",
               "make": "Turkey chili: brown 2.5 lb turkey with onion and garlic; add 2 cans beans and 2 cans crushed tomatoes, chili powder, cumin, smoked paprika; simmer 45 min. Finish with salt and lime.",
-              "doneWhen": ""
+              "doneWhen": "",
+              "ingredients": [
+                "1 tbsp avocado oil",
+                "2 yellow onions, diced",
+                "6 garlic cloves, minced",
+                "2.5 lb 93% lean ground turkey",
+                "3 tbsp chili powder",
+                "1 tbsp cumin",
+                "2 tsp smoked paprika",
+                "2 tsp kosher salt, plus more to taste",
+                "2 cans (28 oz) crushed tomatoes",
+                "1 can (15 oz) black beans, drained and rinsed",
+                "1 can (15 oz) kidney beans, drained and rinsed",
+                "1 lime"
+              ],
+              "steps": [
+                "Heat the oil in a large pot over medium heat. Cook the onions 5 minutes, until soft.",
+                "Add the garlic and stir 30 seconds.",
+                "Turn the heat to medium-high, add the turkey, and break it up. Cook 8–10 minutes, until no pink remains.",
+                "Stir in the chili powder, cumin, paprika and salt, and cook 1 minute.",
+                "Add the tomatoes and beans. Bring to a boil, then lower to a gentle simmer.",
+                "Simmer 45 minutes with the lid slightly open, stirring every 10–15 minutes.",
+                "Turn off the heat and squeeze in half the lime. Taste, then add salt and lime a little at a time until it tastes bright.",
+                "Divide into shallow containers to cool. Get it in the fridge within 2 hours."
+              ]
             },
             {
               "role": "Protein B",
               "make": "Poached chicken breast: salted water to a bare simmer, heat off, lid on 15–20 min, shred.",
-              "doneWhen": "165°F"
+              "doneWhen": "165°F",
+              "ingredients": [
+                "3 lb boneless, skinless chicken breasts",
+                "2 tbsp kosher salt",
+                "Cold water to cover by 1 inch"
+              ],
+              "steps": [
+                "Lay the chicken in a large pot in one layer, and cover with the water and salt.",
+                "Heat over medium until the water barely simmers, with small bubbles at the edge.",
+                "Turn off the heat, cover, and leave 15–20 minutes.",
+                "Check the thickest breast. It needs 165°F. If it is short, cover and give it a few more minutes.",
+                "Lift the chicken out, rest 5 minutes, and shred with two forks.",
+                "Spoon a little poaching liquid over the shredded chicken so it stays moist."
+              ]
             },
             {
               "role": "Starch",
               "make": "Roasted baby potatoes, halved, 425°F, 30–35 min.",
-              "doneWhen": ""
+              "doneWhen": "",
+              "ingredients": [
+                "4 lb baby potatoes, halved",
+                "2 tbsp olive oil",
+                "2 tsp kosher salt",
+                "1 tsp black pepper"
+              ],
+              "steps": [
+                "Heat the oven to 425°F.",
+                "Toss the potatoes with the oil, salt and pepper on a sheet pan.",
+                "Turn them cut-side down in a single layer.",
+                "Roast 30–35 minutes, until the cut sides are golden and a fork slides in easily."
+              ]
             },
             {
               "role": "Vegetables",
               "make": "Roasted broccoli; raw cabbage slaw (cabbage, lime, salt, a little Greek yogurt).",
-              "doneWhen": ""
+              "doneWhen": "",
+              "ingredients": [
+                "2 lb broccoli florets",
+                "2 tbsp avocado oil",
+                "2 tsp kosher salt, divided",
+                "1 small green cabbage, thinly sliced",
+                "1/4 cup lime juice (about 2 limes)",
+                "1/3 cup nonfat Greek yogurt"
+              ],
+              "steps": [
+                "Heat the oven to 425°F.",
+                "Toss the broccoli with the oil and 1 tsp salt, and spread on a sheet pan.",
+                "Roast 20 minutes, flipping once, until browned at the edges.",
+                "For the slaw, toss the cabbage with the lime juice and remaining salt. Squeeze it with your hands for a minute until it softens.",
+                "Stir in the yogurt and taste for salt and lime."
+              ]
             },
             {
               "role": "Sauce",
               "make": "Chimichurri (parsley, garlic, red wine vinegar, olive oil, chili flakes, salt).",
-              "doneWhen": ""
+              "doneWhen": "",
+              "ingredients": [
+                "1 large bunch parsley, finely chopped (about 1 1/2 cups)",
+                "4 garlic cloves, minced",
+                "1/4 cup red wine vinegar",
+                "1/2 cup olive oil",
+                "1/2 tsp chili flakes",
+                "1 tsp kosher salt"
+              ],
+              "steps": [
+                "Stir the garlic, vinegar, chili flakes and salt together. Let it sit 5 minutes to soften the garlic.",
+                "Stir in the parsley and oil.",
+                "Taste and adjust the salt and vinegar.",
+                "Refrigerate. It keeps 3–4 days."
+              ]
             }
           ],
           "weeknightMeals": [
@@ -215,34 +467,122 @@
             {
               "role": "Protein A",
               "make": "Huli-huli-style chicken thighs, marinated Saturday night (shoyu, pineapple juice, ketchup, brown sugar, ginger, garlic); roast at 425°F, brush with boiled marinade the last 5 min.",
-              "doneWhen": "175–185°F"
+              "doneWhen": "175–185°F",
+              "ingredients": [
+                "3 lb boneless, skinless chicken thighs",
+                "1/2 cup shoyu",
+                "3/4 cup pineapple juice (one 6 oz can)",
+                "1/2 cup ketchup",
+                "1/2 cup packed brown sugar",
+                "1 tbsp grated fresh ginger",
+                "4 garlic cloves, grated"
+              ],
+              "steps": [
+                "Saturday night: whisk everything except the chicken in a bowl.",
+                "Put the chicken and marinade in a large zip-top bag, press out the air, and refrigerate overnight. Keep it under 24 hours; pineapple turns chicken mushy.",
+                "Sunday: heat the oven to 425°F and line a sheet pan with foil. The sugar burns onto a bare pan.",
+                "Lift the chicken out, let the extra drip off, and lay it on the pan in one layer. Roast 20 minutes.",
+                "Meanwhile, pour the used marinade into a small saucepan. Hold it at a full rolling boil for at least 1 minute, then simmer about 5 minutes, until thick. Raw-chicken marinade must boil before it touches cooked food.",
+                "Brush the boiled marinade over the chicken with a clean brush, and roast the last 5 minutes.",
+                "Pull at 175–185°F in the thickest piece. Rest 5 minutes, then slice."
+              ]
             },
             {
               "role": "Protein B",
               "make": "Pork tenderloin with soy-ginger glaze (from memory).",
-              "doneWhen": "145°F"
+              "doneWhen": "145°F",
+              "ingredients": [
+                "2 pork tenderloins (about 1 1/4 lb each)",
+                "2 tsp kosher salt",
+                "1 tbsp avocado oil",
+                "Glaze: 1/2 cup shoyu, 1/4 cup rice vinegar, 1/4 cup honey, 1 tbsp grated fresh ginger, 3 garlic cloves, grated"
+              ],
+              "steps": [
+                "Try this from memory first, and only open these steps if you get stuck.",
+                "Heat the oven to 425°F. Trim off any silvery membrane with a thin knife.",
+                "Pat the pork completely dry and salt it on all sides.",
+                "Heat the oil in a large oven-safe skillet over medium-high until it shimmers.",
+                "Sear the pork 2–3 minutes per side, without moving it, until deep brown all over.",
+                "Move the skillet to the oven and roast 12–18 minutes. Pull at 145°F in the thickest part.",
+                "Put a towel over the handle; it stays dangerously hot. Move the pork to a board and rest 5 minutes.",
+                "Keep the browned bits in the skillet for the glaze. Slice the pork after resting.",
+                "Set the hot skillet over medium heat, add the glaze ingredients, and scrape up the browned bits.",
+                "Simmer 3–5 minutes, until syrupy, then spoon over the sliced pork. Save the rest in a jar."
+              ]
             },
             {
               "role": "Starch",
               "make": "Jasmine rice.",
-              "doneWhen": ""
+              "doneWhen": "",
+              "ingredients": [
+                "4 cups dry jasmine rice",
+                "About 4 cups water, or to the 4-cup line on your cooker"
+              ],
+              "steps": [
+                "Rinse the rice in the cooker pot or a strainer, swirling and draining, until the water is mostly clear.",
+                "Add the water and start the cooker. If 4 cups is over your cooker's limit, cook two batches.",
+                "When it finishes, leave the lid closed for 10 minutes, then fluff with a fork.",
+                "Spread the rice on a sheet pan to cool before portioning. Get it in the fridge within 2 hours."
+              ]
             },
             {
               "role": "Vegetables",
               "make": "Roasted broccoli and Brussels sprouts; cucumber salad (rice vinegar, salt, sesame seeds).",
-              "doneWhen": ""
+              "doneWhen": "",
+              "ingredients": [
+                "1 1/2 lb broccoli florets",
+                "1 1/2 lb Brussels sprouts, trimmed and halved",
+                "3 tbsp avocado oil",
+                "2 1/2 tsp kosher salt, divided",
+                "3 medium cucumbers, thinly sliced",
+                "1/4 cup rice vinegar",
+                "1 tbsp sesame seeds"
+              ],
+              "steps": [
+                "Heat the oven to 425°F.",
+                "Toss the broccoli and sprouts with the oil and 1 1/2 tsp salt, on two sheet pans. Set the sprouts cut-side down.",
+                "Roast 20–25 minutes, flipping the broccoli once, until browned.",
+                "For the salad, toss the cucumbers with the remaining salt and leave 10 minutes.",
+                "Drain off the liquid, then toss with the vinegar and sesame seeds."
+              ]
             },
             {
               "role": "Sauce",
               "make": "Leftover glaze; sriracha \"mayo\" made with Greek yogurt.",
-              "doneWhen": ""
+              "doneWhen": "",
+              "ingredients": [
+                "Leftover soy-ginger glaze",
+                "1 cup nonfat Greek yogurt",
+                "2 tbsp sriracha",
+                "Pinch of kosher salt"
+              ],
+              "steps": [
+                "Stir the yogurt, sriracha and salt together.",
+                "Taste and add more sriracha if you want more heat.",
+                "Serve alongside the leftover glaze. Refrigerate both."
+              ]
             }
           ],
           "midweek": {
             "day": "Wednesday",
             "title": "Ahi poke bowl",
             "task": "Cube the ahi and toss with shoyu, sesame oil, green onion, chili flakes; serve over rice with cucumber salad. Eat the same night.",
-            "buyFresh": "Sashimi-grade ahi, bought today (Costco or a local fish counter)."
+            "buyFresh": "Sashimi-grade ahi, bought today (Costco or a local fish counter).",
+            "ingredients": [
+              "8 oz sashimi-grade ahi",
+              "1 1/2 tbsp shoyu",
+              "1 tsp toasted sesame oil",
+              "1 green onion, thinly sliced",
+              "Pinch of chili flakes",
+              "1 cup cooked rice",
+              "Cucumber salad from Sunday"
+            ],
+            "steps": [
+              "Keep the ahi in the fridge until the moment you cut it.",
+              "Use a clean board and your sharpest knife. Cut the ahi into 3/4-inch cubes.",
+              "Toss gently with the shoyu, sesame oil, green onion and chili flakes.",
+              "Serve over the rice with the cucumber salad. Eat it tonight; do not save leftovers."
+            ]
           },
           "weeknightMeals": [],
           "saturdayNight": [

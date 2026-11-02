@@ -102,6 +102,11 @@
     td.done::before { content: "Done when: "; }
   }
 
+  details { margin-top: 2px; }
+  summary { display: flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 600; cursor: pointer; }
+  summary::before { content: "▸"; margin-right: 6px; }
+  details[open] summary::before { content: "▾"; }
+
   .check {
     display: flex;
     align-items: center;
@@ -250,9 +255,17 @@ function roadmapCard(month, current) {
   </section>`;
 }
 
+function recipe(item) {
+  if (!item.steps) return '';
+  return `<details><summary>Full recipe</summary>
+    ${listSection('Ingredients', item.ingredients)}
+    ${section('Steps', list(item.steps, 'ol'))}
+  </details>`;
+}
+
 function componentsTable(week) {
   const rows = week.components.map((c) => `<tr>
-    <th scope="row">${esc(c.role)}</th><td>${esc(c.make)}</td><td class="done">${esc(c.doneWhen || '')}</td>
+    <th scope="row">${esc(c.role)}</th><td>${esc(c.make)}${recipe(c)}</td><td class="done">${esc(c.doneWhen || '')}</td>
   </tr>`).join('');
   return `<table><thead><tr><th>Component</th><th>Make</th><th>Done when</th></tr></thead>
     <tbody>${rows}</tbody></table>`;
@@ -269,7 +282,8 @@ function weekCard(info) {
     ${listSection('Saturday night', week.saturdayNight)}
     ${listSection('Weeknight meals', week.weeknightMeals)}
     ${midweek ? section(`Midweek: ${midweek.day}`, `<p><strong>${esc(midweek.title || '')}</strong> ${esc(midweek.task)}</p>
-      ${midweek.buyFresh ? `<p class="muted">Buy fresh: ${esc(midweek.buyFresh)}</p>` : ''}`) : ''}
+      ${midweek.buyFresh ? `<p class="muted">Buy fresh: ${esc(midweek.buyFresh)}</p>` : ''}
+      ${recipe(midweek)}`) : ''}
     ${listSection('Notes', week.notes)}
   </section>`;
 }
