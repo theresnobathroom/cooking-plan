@@ -3,6 +3,7 @@
   "timezone": "Pacific/Honolulu",
   "plateFormula": "~6 oz cooked protein, half the container vegetables, 3/4-1 cup starch (1/2 cup on rest days or during the cut)",
   "breakfast": "Greek yogurt + frozen berries + oats, or 3 eggs + egg whites",
+  "shoppingRule": "Small trips (under about $100) go to Foodland Kihei. Big trips (about $100 or more, like pantry restocks) go to Costco, which is 30 minutes out of the way.",
   "sevenDayRule": "Portion 14 meals Sunday. Fridge the Mon–Wed meals, freeze the Thu–Sun meals, and move each frozen meal to the fridge the night before.",
   "pantry": [
     "Jasmine rice (25 lb) and rolled oats",
@@ -21,7 +22,7 @@
     "Separate cutting board for raw meat."
   ],
   "sundayOrderOfOperations": [
-    "Unpack Costco. Split raw meat into recipe-size portions; freeze what isn't cooking today.",
+    "Unpack the groceries. Split raw meat into recipe-size portions; freeze what isn't cooking today.",
     "Preheat the oven to 425°F and start the rice cooker.",
     "Season Protein A and put it in the oven on sheet pan 1.",
     "Chop vegetables; roast them on sheet pans 2 and 3.",
@@ -155,6 +156,7 @@
             "Chicken rice bowls with yogurt sauce",
             "Turkey burrito bowls with salsa and corn tortillas"
           ],
+          "store": "Costco",
           "costcoList": [
             "Chicken thighs (cook half, freeze half)",
             "93% lean ground turkey (cook 2 lb, freeze rest)",
@@ -316,6 +318,7 @@
           "saturdayNight": [
             "Move the Week 1 bag of frozen chicken thighs to the fridge to thaw."
           ],
+          "store": "Foodland Kihei",
           "costcoList": [
             "Pork tenderloin (2-pack)",
             "Frozen wild salmon",
@@ -443,6 +446,7 @@
             "Shredded chicken with potatoes, broccoli and chimichurri",
             "Chicken tacos"
           ],
+          "store": "Foodland Kihei",
           "costcoList": [
             "93% lean ground turkey",
             "Chicken breasts",
@@ -567,7 +571,7 @@
             "day": "Wednesday",
             "title": "Ahi poke bowl",
             "task": "Cube the ahi and toss with shoyu, sesame oil, green onion, chili flakes; serve over rice with cucumber salad. Eat the same night.",
-            "buyFresh": "Sashimi-grade ahi, bought today (Costco or a local fish counter).",
+            "buyFresh": "Sashimi-grade ahi, bought today at the Foodland fish counter.",
             "ingredients": [
               "8 oz sashimi-grade ahi",
               "1 1/2 tbsp shoyu",
@@ -589,13 +593,14 @@
             "Marinate the huli-huli chicken thighs tonight (shoyu, pineapple juice, ketchup, brown sugar, ginger, garlic). If you don't have the thighs yet, marinate right after the Sunday shop instead.",
             "If you're using the frozen Week 2 pork tenderloin, move it to the fridge to thaw."
           ],
+          "store": "Foodland Kihei",
           "costcoList": [
             "Chicken thighs",
             "Pork tenderloin (or the Week 2 frozen one)",
             "Pineapple juice (small cans)",
             "Cucumbers, green onions",
             "Broccoli, Brussels sprouts",
-            "Sashimi-grade ahi (Wednesday, Costco or a local fish counter)",
+            "Sashimi-grade ahi (buy Wednesday at the Foodland fish counter)",
             "Greek yogurt, eggs, berries"
           ],
           "notes": [

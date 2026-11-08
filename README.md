@@ -47,7 +47,7 @@ All times are Pacific/Honolulu.
 
 | When | Email |
 | --- | --- |
-| Saturday 6 PM | Costco list and Saturday-night tasks for the coming week |
+| Saturday 6 PM | Shopping list (named for that week's store) and Saturday-night tasks for the coming week |
 | Sunday 8 AM | Cook-day menu and order of operations |
 | Midweek task day, 7 AM | The midweek task and anything to buy fresh |
 | Wednesday 8 PM | Move Thu–Fri meals to the fridge |
@@ -73,7 +73,8 @@ Optional week fields:
 | `midweek` | `day`, `title` (short, used in the email subject), `task`, and optional `buyFresh`, `ingredients` and `steps` |
 | `ingredients`, `steps` | On a component: adds an expandable full recipe on the site. Emails keep the short `make` text |
 | `saturdayNight` | Tasks for the Saturday before this week's cook day, such as thawing or marinating |
-| `includesPantry` | `true` adds the pantry list to this week's Costco checklist |
+| `includesPantry` | `true` adds the pantry list to this week's shopping checklist |
+| `store` | Where to shop that week, such as `Foodland Kihei` or `Costco`. Defaults to Costco. The week's list stays in `costcoList` whichever store it is |
 
 Months with `goals` use them in the monthly email; a detailed month without `goals` uses each week's `skill`.
 

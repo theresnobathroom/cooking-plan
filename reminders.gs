@@ -139,7 +139,7 @@ function loadPlan_() {
   return JSON.parse(json);
 }
 
-function costcoItems_(plan, week) {
+function shoppingItems_(plan, week) {
   const pantry = week.includesPantry ? plan.pantry.map((item) => 'Pantry: ' + item) : [];
   return week.costcoList.concat(pantry);
 }
@@ -152,7 +152,7 @@ function shopEmail_(plan, info) {
   return {
     subject: '[Cooking] Tomorrow: Week ' + info.n + ' shop + cook',
     sections: [
-      { heading: 'Costco list', style: 'check', lines: costcoItems_(plan, week) },
+      { heading: (week.store || 'Costco') + ' list', style: 'check', lines: shoppingItems_(plan, week) },
       tonight.length
         ? { heading: 'Tonight', style: 'bullet', lines: tonight }
         : { heading: 'Tonight', lines: ['Nothing to thaw or prep tonight.'] },

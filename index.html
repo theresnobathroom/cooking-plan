@@ -155,7 +155,7 @@ const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frid
 const TABS = [
   ['today', 'Today'],
   ['week', 'Week'],
-  ['costco', 'Costco'],
+  ['shop', 'Shop'],
   ['month', 'Month'],
   ['year', 'Year'],
   ['reference', 'Ref'],
@@ -206,7 +206,7 @@ const clampMonth = (n) => Math.min(Math.max(n, 1), plan.months.length);
 
 // ---- Plan helpers ----
 
-function costcoItems(week) {
+function shoppingItems(week) {
   const pantry = week.includesPantry ? plan.pantry.map((item) => `Pantry: ${item}`) : [];
   return week.costcoList.concat(pantry);
 }
@@ -334,7 +334,7 @@ function renderToday() {
   let body = '';
   if (isCookDay && info.detail) {
     body = `<section class="card"><h2>${esc(info.detail.title)}</h2><p>${esc(info.detail.skill)}</p>
-      <div class="actions"><a class="btn primary" href="#costco">Costco list</a><a class="btn" href="#week">Menu</a></div>
+      <div class="actions"><a class="btn primary" href="#shop">Shopping list</a><a class="btn" href="#week">Menu</a></div>
     </section>`;
   } else if (started && !lead && info.detail) {
     body = `<section class="card"><p>${esc(plan.plateFormula)}</p>
@@ -353,7 +353,7 @@ function renderToday() {
       <h2>Next cook day: ${daysToCook === 1 ? 'tomorrow' : `in ${daysToCook} days`}</h2>
       <p class="muted">${formatDay(nextCook, { weekday: 'long', month: 'long', day: 'numeric' })}${
         nextInfo.detail && nextCook === nextInfo.sunday ? ` · Week ${nextInfo.n}: ${esc(nextInfo.detail.title)}` : ''}</p>
-      ${dow === 6 && nextInfo.detail ? '<div class="actions"><a class="btn primary" href="#costco">Costco list</a></div>' : ''}
+      ${dow === 6 && nextInfo.detail ? '<div class="actions"><a class="btn primary" href="#shop">Shopping list</a></div>' : ''}
     </section>`;
 }
 
@@ -401,20 +401,21 @@ function shopProgress(items, checks) {
   return `${items.filter((item) => checks[item]).length} of ${items.length} in the cart`;
 }
 
-function renderCostco() {
+function renderShop() {
   const n = state.shopPage ?? defaultShopWeek();
   const info = weekInfo(n);
-  const header = `<h1>Costco</h1>${pager('shop', `Week ${n} · ${shortDate(info.sunday)}`, n <= 1, n >= totalWeeks())}`;
+  const header = `<h1>Shop</h1>${pager('shop', `Week ${n} · ${shortDate(info.sunday)}`, n <= 1, n >= totalWeeks())}`;
   if (!info.detail) {
     return `${header}${info.month ? roadmapCard(info.month) : ''}`;
   }
 
-  const items = costcoItems(info.detail);
+  const items = shoppingItems(info.detail);
   const checks = loadChecks(n);
   const rows = items.map((item) => `<label class="check">
     <input type="checkbox" data-item="${esc(item)}" ${checks[item] ? 'checked' : ''}><span>${esc(item)}</span>
   </label>`).join('');
   return `${header}
+    <h2>${esc(info.detail.store || 'Costco')}</h2>
     <section class="card">${rows}</section>
     <div class="row">
       <span class="muted" id="progress">${shopProgress(items, checks)}</span>
@@ -456,6 +457,7 @@ function renderReference() {
       ${section('Breakfast', `<p>${esc(plan.breakfast)}</p>`)}</section>
     <section class="card"><h2>Sunday order of operations</h2>${list(plan.sundayOrderOfOperations, 'ol')}</section>
     <section class="card"><h2>The 7-day rule</h2><p>${esc(plan.sevenDayRule)}</p></section>
+    ${plan.shoppingRule ? `<section class="card"><h2>Where to shop</h2><p>${esc(plan.shoppingRule)}</p></section>` : ''}
     <section class="card"><h2>Pantry</h2>${list(plan.pantry)}</section>
     <section class="card"><h2>Food safety</h2>${list(plan.foodSafety)}</section>
     <section class="card"><h2>Calendar</h2>
@@ -466,7 +468,7 @@ function renderReference() {
 const VIEWS = {
   today: renderToday,
   week: renderWeek,
-  costco: renderCostco,
+  shop: renderShop,
   month: renderMonth,
   year: renderYear,
   reference: renderReference,
@@ -581,7 +583,7 @@ document.addEventListener('change', (event) => {
   const checks = loadChecks(n);
   checks[box.dataset.item] = box.checked;
   saveChecks(n, checks);
-  document.getElementById('progress').textContent = shopProgress(costcoItems(weekInfo(n).detail), checks);
+  document.getElementById('progress').textContent = shopProgress(shoppingItems(weekInfo(n).detail), checks);
 });
 
 window.addEventListener('hashchange', () => {
